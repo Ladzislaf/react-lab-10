@@ -11,7 +11,7 @@ const HelloWorldComponent = ({stringProp, symbolProp, arrayProp, boolProp, funcP
 }
 
 HelloWorldComponent.propTypes = {
-    stringProp: PropTypes.string,
+    stringProp: PropTypes.string.isRequired,
     symbolProp: PropTypes.symbol,
     arrayProp: PropTypes.array,
     boolProp: PropTypes.bool,

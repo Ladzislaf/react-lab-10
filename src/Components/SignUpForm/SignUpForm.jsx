@@ -1,12 +1,17 @@
 import React, {useState} from 'react'
-import PropTypes from 'prop-types'
 import PhoneInput from './PhoneInput'
 import SignUpEmailInput from './SignUpEmailInput'
 import SignUpPasswordInput from './SignUpPasswordInput'
+import FormInfoHandler from './FormInfoHandler'
+
 import './style/SignUpForm.css'
 
 const SignUpForm = () => {
     const [sendButtonState, setSendButtonState] = useState({email: false, pass: false})
+
+    const [name, setName] = useState('')
+    const [surname, setSurname] = useState('')
+    const [secondName, setSecondName] = useState('')
 
     const days = [], years = []
     for (let i = 1; i < 32; i++) days.push(i)
@@ -30,21 +35,24 @@ const SignUpForm = () => {
     })
 
     return (
-        <form>
-            <h2>Registration form</h2>
-            <SignUpEmailInput sendButtonState={sendButtonState} setSendButtonState={setSendButtonState}/>
-            <SignUpPasswordInput sendButtonState={sendButtonState} setSendButtonState={setSendButtonState}/>
-            <input className={'input'} placeholder={'name'}/><br/>
-            <input className={'input'} placeholder={'surname'}/><br/>
-            <input className={'input'} placeholder={'second name'}/><br/>
-            <input type={'radio'} name={'pol'}/>Male
-            <input type={'radio'} name={'pol'}/>Female<br/>
-            <select className={'sel'}>{allDays}</select>
-            <select className={'sel'}>{allMonths}</select>
-            <select className={'sel'}>{allYears}</select>
-            <PhoneInput/>
-            <input type="submit" className={'send'} value="send" disabled={!sendButtonState.email || !sendButtonState.pass}/>
-        </form>
+        <>
+            <form>
+                <h2>Registration form</h2>
+                <SignUpEmailInput sendButtonState={sendButtonState} setSendButtonState={setSendButtonState}/>
+                <SignUpPasswordInput sendButtonState={sendButtonState} setSendButtonState={setSendButtonState}/>
+                <input className={'input'} placeholder={'name'} value={name} onChange={(e) => setName(e.target.value)}/><br/>
+                <input className={'input'} placeholder={'surname'} value={surname} onChange={(e) => setSurname(e.target.value)}/><br/>
+                <input className={'input'} placeholder={'second name'} value={secondName} onChange={(e) => setSecondName(e.target.value)}/><br/>
+                <input type={'radio'} name={'pol'}/>Male
+                <input type={'radio'} name={'pol'}/>Female<br/>
+                <select className={'sel'}>{allDays}</select>
+                <select className={'sel'}>{allMonths}</select>
+                <select className={'sel'}>{allYears}</select>
+                <PhoneInput/>
+                <input type={'submit'} className={'send'} value={'send'} disabled={!sendButtonState.email || !sendButtonState.pass}/>
+            </form>
+            <FormInfoHandler name={name} surname={surname} secondName={secondName}/>
+        </>
     )
 }
 

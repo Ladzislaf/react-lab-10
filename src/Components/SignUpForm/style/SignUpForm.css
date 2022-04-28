@@ -41,6 +41,12 @@ h2 {
 	background: rgba(9, 255, 0, 0.377);
 }
 
+.send:disabled {
+	background: rgba(0, 0, 0, 0.29);
+	border: 2px solid rgba(255, 0, 0, 0.66);
+	cursor: not-allowed;
+}
+
 .sel {
 	font-family: 'Roboto', sans serif;
 	background: rgba(9, 255, 0, 0.377);
