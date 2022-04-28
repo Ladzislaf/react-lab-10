@@ -4,6 +4,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    background: rgba(0, 0, 0, 0.1)gi;
+}
+
 img {
     width: 50px;
 }
@@ -29,6 +33,16 @@ img {
     border: 2px solid;
     border-radius: 1px;
     transition: 0.4s;
+}
+
+select {
+    font-size: 26px;
+    border-radius: 5px;
+    background: #ddfad7;
+}
+
+select:hover {
+    background: #60e547;
 }
 
 .searchItem {

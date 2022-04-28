@@ -30,7 +30,7 @@ const Search = ({productsList}) => {
                 <option>accurate search</option>
                 <option>partial search</option>
             </select>
-            <h5>Input name to search:</h5>
+            <h5 style={{fontSize: '24px'}}>Input name to search:</h5>
             <input type="text" placeholder={'name'} onChange={searchHandler}/>
 
             {resultList.map((product) => {
